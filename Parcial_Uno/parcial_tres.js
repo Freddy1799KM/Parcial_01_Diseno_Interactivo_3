@@ -111,6 +111,17 @@ function multiplicarArgumentos () {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Escribe tu código aquí:
+  if (arguments.length === 0) {
+    return 0;
+  }
+  if (arguments.length === 1) {
+    return arguments[0];
+  }
+  let producto = 1;
+  for (let i = 0; i < arguments.length; i++) {
+    producto *= arguments[i];
+  }
+  return producto;
 }
 
 function cuentoElementos (arreglo) {
@@ -140,6 +151,11 @@ function empiezaConNueve (n) {
   // Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero
   // inicia con 9 y false en otro caso.
   // Escribe tu código aquí
+  let numero = n.toString();
+  if (numero[0] === "9") {
+    return true;
+  }
+  return false;
 }
 
 function todosIguales (arreglo) {
@@ -160,12 +176,29 @@ function mesesDelAño (array) {
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   // Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
+  let mesesEncontrados = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === "Enero" || array[i] === "Marzo" || array[i] === "Noviembre") {
+      mesesEncontrados.push(array[i]);
+    }
+  }
+  if (mesesEncontrados.length !== 3) {
+    return "No se encontraron los meses pedidos";
+  }
+  return mesesEncontrados;
 }
 
 function mayorACien (array) {
   // La función recibe un array con enteros entre 0 y 200. Recorrer el array y guardar en un nuevo array sólo los
   // valores mayores a 100 (no incluye el 100). Finalmente devolver el nuevo array.
   // Tu código:
+  let mayoresACien = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > 100) {
+      mayoresACien.push(array[i]);
+    }
+  }
+  return mayoresACien;
 }
 
 function breakStatement (numero) {
@@ -176,6 +209,15 @@ function breakStatement (numero) {
   // devolver: "Se interrumpió la ejecución"
   // Pista: usá el statement 'break'
   // Tu código:
+  let valores = [];
+  for (let i = 0; i < 10; i++) {
+    numero += 2;
+    valores.push(numero);
+    if (numero === i) {
+      return "Se interrumpió la ejecución";
+    }
+  }
+  return valores;
 }
 
 function continueStatement (numero) {
@@ -185,6 +227,15 @@ function continueStatement (numero) {
   // Cuando el número de iteraciones alcance el valor 5, no se suma en ese caso y se continua con la siguiente iteración
   // Pista: usá el statement 'continue'
   // Tu código:
+  let valores = [];
+  for (let i = 0; i < 10; i++) {
+    if (i === 5) {
+      continue;
+    }
+    numero += 2;
+    valores.push(numero);
+  }
+  return valores;
 }
 
 // No modificar nada debajo de esta línea
